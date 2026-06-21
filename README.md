@@ -1,26 +1,12 @@
-# OSM Blog — WordPress theme (modernised)
+# blog.openstreetmap.org wordpress theme (modernised)
 
 A light, fast, accessible WordPress theme for **[blog.openstreetmap.org](https://blog.openstreetmap.org/)**, the main OpenStreetMap blog run by the Foundation.
 
-This is the original `osmblog-wp-theme` (a lightly-customised *Twenty Twelve*) **restyled in place** — same OpenStreetMap identity and the same WordPress structure underneath, but with a modern, card-based layout inspired by [opensource.guide](https://opensource.guide/). Because the template logic, text domain, widgets, menus, post formats and comments are all unchanged, **your existing posts, pages, settings and widgets keep working** when you switch to it.
+This is the original `osmblog-wp-theme` (a lightly-customised *Twenty Twelve*) **restyled in place** , same OpenStreetMap identity and the same WordPress structure underneath, but with a modern, card-based layout inspired by [opensource.guide](https://opensource.guide/). Because the template logic, text domain, widgets, menus, post formats and comments are all unchanged, **your existing posts, pages, settings and widgets keep working** when you switch to it.
 
 > **Upstream / official repo:** <https://github.com/osmfoundation/osmblog-wp-theme>
 
 ![Theme screenshot](screenshot.png)
-
----
-
-## Table of contents
-
-1. [What we did (summary)](#1-what-we-did-summary)
-2. [Features](#2-features)
-3. [What changed, file by file](#3-what-changed-file-by-file)
-4. [Install & activate — keeping all your data](#4-install--activate--keeping-all-your-data)
-5. [Staging — test it safely before going live](#5-staging--test-it-safely-before-going-live)
-6. [GitHub tutorial — upload to *your* GitHub (browser only)](#6-github-tutorial--upload-to-your-github-browser-only)
-7. [Send it to the OSM Foundation (fork & pull request)](#7-send-it-to-the-osm-foundation-fork--pull-request)
-8. [Rollback](#8-rollback)
-9. [Credits & licence](#9-credits--licence)
 
 ---
 
@@ -96,7 +82,7 @@ Two safe ways to install, **all in the browser**:
 1. Log in to **WordPress Admin** → **Appearance → Themes**.
 2. Click **Add New Theme → Upload Theme**.
 3. Choose `osmblog-wp-theme.zip` and click **Install Now**.
-4. **Don't click "Activate" yet** if this is the live site — test on staging first (see §5). On a staging site, click **Activate**.
+4. **Don't click "Activate" yet** if this is the live site, test on staging first. On a staging site, click **Activate**.
 
 ### Option B — Live Preview first (zero risk)
 
@@ -111,112 +97,11 @@ Two safe ways to install, **all in the browser**:
 - Open the **home page**, **one post**, and an **archive/category** page and glance over them.
 - Hard-refresh once (`Ctrl/Cmd + Shift + R`) so the new CSS loads instead of a cached copy.
 
-That's it — nothing else needs migrating.
+That's it, nothing else needs migrating.
 
 ---
 
-## 5. Staging — test it safely before going live
-
-"Staging" means a private copy of your site where you can activate and poke at the new theme **without** affecting real visitors. Pick whichever matches your setup — **all browser-based, no command line:**
-
-### Path 1 — Host's 1-click staging (recommended if available)
-Many WordPress hosts (e.g. SiteGround, Kinsta, WP Engine, Cloudways, many cPanel hosts) have a **"Staging"** button:
-
-1. In your hosting dashboard, find **Staging** (sometimes under *WordPress Tools* or *Site Tools*).
-2. Click **Create staging copy**. The host clones your site to a private URL like `staging.yourblog.org`.
-3. Log in to the **staging** admin, install + activate the new theme there (§4), and test thoroughly.
-4. When satisfied, either repeat the install on production, or use the host's **"Push to Live"** button.
-
-### Path 2 — Staging plugin (works on almost any host)
-If your host has no staging button, use a plugin — entirely from the WordPress admin:
-
-1. **Plugins → Add New**, search **"WP Staging"**, then **Install → Activate**.
-2. Open **WP Staging → Create new staging site**, give it a name, click **Start**.
-3. Log in to the generated staging site, install + activate the theme, and test.
-
-### Path 3 — Local copy on your own computer
-Prefer offline? Install **[Local](https://localwp.com/)** (a free desktop app), import a copy of the site (e.g. via the **All-in-One WP Migration** plugin's export/import — both done through the browser/app UI), then test the theme there.
-
-**What to test on staging:** home page, a long post with images/quotes/code, a page, a category/tag archive, search results, the 404 page, the comment form, the mobile menu (resize the window narrow), and keyboard navigation (press **Tab** and check the focus outline + skip link).
-
----
-
-## 6. GitHub tutorial — upload to *your* GitHub (browser only)
-
-You'll put this theme in your **own** GitHub account first. No Git, no terminal — just the GitHub website.
-
-### Step 1 — Create a GitHub account (skip if you have one)
-Go to <https://github.com> → **Sign up** → follow the prompts → verify your email.
-
-### Step 2 — Create a new repository
-1. Top-right **+** → **New repository**.
-2. **Repository name:** `osmblog-wp-theme` (or `osmblog-wp-theme-modern`).
-3. **Description:** "Modernised WordPress theme for blog.openstreetmap.org."
-4. Choose **Public**.
-5. Tick **Add a README file** (you can overwrite it later), and set **Licence → GNU General Public License v2.0**.
-6. Click **Create repository**.
-
-### Step 3 — Upload the theme files
-1. On the repo page, click **Add file → Upload files**.
-2. Open the unzipped theme folder on your computer and **drag every file and folder** (`style.css`, `header.php`, the `css/`, `fonts/`, `images/`, `inc/`, `js/`, `languages/`, `page-templates/` folders, etc.) into the upload box.
-   - Tip: drag the **contents** of the theme folder, not the folder itself, so files sit at the repo root.
-3. Scroll down to **Commit changes**. In the message box write something like:
-   `Modernise OSM blog theme: card layout, sticky header, lighter CSS (v2.0)`
-4. Click **Commit changes**. GitHub uploads everything.
-
-### Step 4 — Replace the README (optional)
-Open `README.md` in the repo → pencil **✎ Edit** → paste this file's contents → **Commit changes**.
-
-You now have your work on GitHub at `https://github.com/<your-username>/osmblog-wp-theme`. 🎉
-
-> **Heads-up about large folders:** the `fonts/` folder has many files. If a drag-and-drop upload times out, upload it in two goes (e.g. upload `fonts/` on its own first, then the rest), or use **Add file → Upload files** repeatedly. Each upload is its own commit, which is fine.
-
----
-
-## 7. Send it to the OSM Foundation (fork & pull request)
-
-The Foundation maintains the live theme at **[osmfoundation/osmblog-wp-theme](https://github.com/osmfoundation/osmblog-wp-theme)**. The way to propose your redesign is a **fork + pull request** — again, **all in the browser.**
-
-> Before investing effort, it's polite to **open an issue first** describing the redesign and linking your screenshot, so maintainers can say whether they'd welcome it. Issues: <https://github.com/osmfoundation/osmblog-wp-theme/issues>.
-
-### Step 1 — Fork the upstream repo
-1. Go to <https://github.com/osmfoundation/osmblog-wp-theme>.
-2. Click **Fork** (top-right) → **Create fork**. You now have `https://github.com/<your-username>/osmblog-wp-theme` that is *linked* to the original.
-
-### Step 2 — Put your changes into the fork
-Easiest browser-only route — edit the fork directly:
-1. In **your fork**, click **Add file → Upload files** and upload your modified files: `style.css`, `header.php`, `footer.php`, `sidebar.php`, `functions.php`, `screenshot.png`, `README.md`, `CHANGELOG.md` at the repo root, and `theme-toggle.js` inside the **`js/`** folder (open the `js` folder first, then upload). Uploading a file with the same path **replaces** it.
-2. **Important — commit to a new branch, not `master`:** at the **Commit changes** step choose **"Create a new branch for this commit and start a pull request."** Name the branch e.g. `modern-redesign`.
-3. Click **Propose changes**.
-
-### Step 3 — Open the pull request
-1. GitHub shows a **"Comparing changes"** screen: base = `osmfoundation/osmblog-wp-theme : master`, head = `your-fork : modern-redesign`.
-2. Click **Create pull request**.
-3. Give it a clear title, e.g. **"Modernise the blog theme (card layout, lighter CSS) — keeps all content"**, and in the description explain:
-   - what changed and why (link this README's §1–§3),
-   - that it **keeps the `twentytwelve` text domain, menus and widget areas**, so no content/setup is lost,
-   - that it adds **no external requests** and **drops legacy CSS**,
-   - attach the **before/after screenshot**.
-4. Click **Create pull request**.
-
-### Step 4 — Respond to review
-Maintainers may ask for tweaks. To update the PR, just upload corrected files to the **same branch** in your fork (**Add file → Upload files → commit to `modern-redesign`**); the PR updates automatically. Be patient and friendly — this is a volunteer project.
-
-> **Note on `screenshot.png`:** the one in this repo is a representative render. If maintainers prefer, replace it with a real screenshot of the activated theme on a staging site (1200×900) before/after merge.
-
----
-
-## 8. Rollback
-
-If anything looks off after activating, you can revert instantly with **no data loss**:
-
-- **Appearance → Themes → (your previous theme) → Activate.** Visitors immediately see the old theme again.
-- Your menus and widgets reattach to whichever theme is active.
-- Keep your original `osmblog-wp-theme-master.zip` as a backup of the previous version, and always test on **staging** first (§5).
-
----
-
-## 9. Credits & licence
+## 6. Credits & licence
 
 - Original theme: **Harry Wood**, a customised [Twenty Twelve](https://wordpress.org/themes/twentytwelve/).
 - Modernisation: the OpenStreetMap community, inspired by the layout language of [opensource.guide](https://opensource.guide/).
