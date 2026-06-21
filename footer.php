@@ -1,8 +1,8 @@
 <?php
 /**
- * The template for displaying the footer
+ * The footer template for the OSM Blog theme.
  *
- * Contains footer content and the closing of the #main and #page div elements.
+ * Closes #main and #page, and outputs OSM attribution + credits.
  *
  * @package WordPress
  * @subpackage Twenty_Twelve
@@ -10,22 +10,30 @@
  */
 ?>
 	</div><!-- #main .wrapper -->
+
 	<footer id="colophon" role="contentinfo">
 		<div class="site-info">
-			<?php do_action( 'twentytwelve_credits' ); ?>
-			<?php
-			if ( function_exists( 'the_privacy_policy_link' ) ) {
-				the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span>' );
-			}
-			?>
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentytwelve' ) ); ?>" class="imprint" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentytwelve' ); ?>">
-				<?php
-				/* translators: %s: WordPress */
-				printf( __( 'Proudly powered by %s', 'twentytwelve' ), 'WordPress' );
-				?>
+			<a class="osm-foot-brand" href="https://www.openstreetmap.org/" rel="noopener">
+				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/osm-logo.png" width="22" height="22" alt="OpenStreetMap logo" />
+				<?php _e( 'OpenStreetMap', 'twentytwelve' ); ?>
 			</a>
+
+			<span><?php printf( __( 'Content licensed under %s.', 'twentytwelve' ), '<a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="license noopener">CC BY-SA 2.0</a>' ); ?></span>
+
+			<span class="osm-foot-sep">
+				<?php
+				if ( function_exists( 'the_privacy_policy_link' ) ) {
+					the_privacy_policy_link( '', '&nbsp;&middot;&nbsp;' );
+				}
+				do_action( 'twentytwelve_credits' );
+				?>
+				<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentytwelve' ) ); ?>" class="imprint">
+					<?php printf( __( 'Proudly powered by %s', 'twentytwelve' ), 'WordPress' ); ?>
+				</a>
+			</span>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

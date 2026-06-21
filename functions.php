@@ -190,6 +190,9 @@ function twentytwelve_scripts_styles() {
 	// Adds JavaScript for handling the navigation menu hide-and-show behavior.
 	wp_enqueue_script( 'twentytwelve-navigation', get_template_directory_uri() . '/js/navigation.js', array( 'jquery' ), '20141205', true );
 
+	// Dark / light mode toggle.
+	wp_enqueue_script( 'osm-theme-toggle', get_template_directory_uri() . '/js/theme-toggle.js', array(), '20240601', true );
+
 	$font_url = twentytwelve_get_font_url();
 	if ( ! empty( $font_url ) ) {
 		$font_version = ( 0 === strpos( (string) twentytwelve_get_font_url(), get_template_directory_uri() . '/' ) ) ? '20230328' : null;
@@ -197,10 +200,15 @@ function twentytwelve_scripts_styles() {
 	}
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri(), array(), '20230808' );
+	wp_enqueue_style( 'twentytwelve-style', get_stylesheet_uri(), array(), '20240601-osm21' );
 
-	// Theme block stylesheet.
-	wp_enqueue_style( 'twentytwelve-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'twentytwelve-style' ), '20230213' );
+	/*
+	 * Legacy Twenty Twelve block theming is intentionally NOT enqueued in the
+	 * OSM Blog theme — the modern styles in style.css handle blocks, and
+	 * WordPress core's wp-block-library still provides block layout. This keeps
+	 * the front end lighter and visually consistent.
+	 */
+	// wp_enqueue_style( 'twentytwelve-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'twentytwelve-style' ), '20230213' );
 
 	// Loads the Internet Explorer specific stylesheet.
 	wp_enqueue_style( 'twentytwelve-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentytwelve-style' ), '20150214' );
